@@ -34,6 +34,10 @@ void Zombie::handleInput(float dt)
 {
 	if (inputObject->isKeyDown(sf::Keyboard::Right))
 	{
+		if (!walk.getPlaying())
+		{
+			walk.play(true);
+		}
 		move(sf::Vector2f(speed * dt, 0));
 
 		if (walk.getFlipped())
@@ -43,11 +47,19 @@ void Zombie::handleInput(float dt)
 	}
 	else if (inputObject->isKeyDown(sf::Keyboard::Left))
 	{
+		if (!walk.getPlaying())
+		{
+			walk.play(true);
+		}
 		move(sf::Vector2f(-speed * dt, 0));
 		if (!walk.getFlipped())
 		{
 			walk.setFlipped(true);
 		}
+	}
+	else
+	{
+		walk.stop();
 	}
 }
 
