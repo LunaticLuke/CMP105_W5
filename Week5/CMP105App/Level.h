@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include "Zombie.h"
+#include "Mario.h"
 
 
 class Level{
@@ -23,7 +24,8 @@ private:
 	void endDraw();
 	sf::Texture zombTexture;
 	Zombie zombie;
-
+	Mario mario;
+	sf::Texture marioTexture;
 	// Default variables for level class.
 	sf::RenderWindow* window;
 	Input* input;
